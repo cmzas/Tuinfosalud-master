@@ -1,0 +1,58 @@
+.carousel {
+  width: 100%;
+
+  .carousel-title {
+    margin-top: 48px;
+    font-weight: 700;
+    border-bottom: 1px solid $color-black;
+    padding-bottom: 16px;
+
+    @include table-mobile-landscape {
+      margin-top: 40px;
+    }
+
+    @include mobile-portrait {
+      margin-top: 32px;
+    }
+  }
+
+  .carousel-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+    padding-top: 32px;
+
+    @include mobile-portrait {
+      grid-auto-flow: column;
+      overflow-x: auto;
+      padding-top: 24px;
+      padding-bottom: 20px;
+      margin-left: -20px;
+      margin-right: -20px;
+    }
+  }
+
+  .carousel-card {
+    h3 {
+      margin-top: 12px;
+      font-weight: 700;
+
+      @include mobile-portrait {
+        margin-top: 8px;
+      }
+    }
+
+    p {
+      font-weight: 400;
+      color: $color-gray;
+    }
+
+    @include mobile-portrait {
+      .featured-image {
+        width: 156px;
+        height: 102px;
+      }
+    }
+  }
+}

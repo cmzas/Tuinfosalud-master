@@ -1,0 +1,60 @@
+// breakpoints
+$breakpoint-sm: 480px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1440px;
+
+// Colors
+$color-background: #ffffff;
+$color-black: #222222;
+$color-gray: #828282;
+$color-light-gray: #f8f8f8;
+$color-success: #0a9279;
+$accent-color: #0a9279;
+$lighter-accent-color: rgba(10, 146, 121, 0.3);
+$lightest-accent-color: rgba(10, 146, 121, 0.1);
+
+$header-icon-color: #ffffff;
+$footer-icon-color: #ffffff;
+$footer-background-color: #000000;
+$footer-links-color: #ffffff;
+$footer-legal-text: #999;
+$nav-text-hover: #d3d3d3;
+$expert-author-icon-color: #000000;
+:root {
+  --font-size-small: 12px;
+
+  --primary-color: #5c2941;
+  --header-bg: #5c2941;
+
+  --home-link-color: #a1613f;
+  --home-link-hover-color: var(--primary-color);
+
+  --button-color: #e5c3d3;
+  --button-alternate-color: #5c2941;
+
+  --post-link-color: #0f070b;
+
+  --nav-link-hover-bg: #111;
+  --text-color-meta: rgba(0, 0, 0, 0.5);
+
+  --label-text: rgba(0, 0, 0, 0.5);
+  --input-focus-border: #83aaac;
+
+  // CSS Grid Utility
+  --grid-gap: 30px;
+}
+
+.progress-bar {
+  background-color: $accent-color;
+}
+
+:export {
+  color-background: $color-background;
+  accent-color: $accent-color;
+  header-icon-color: $header-icon-color;
+  footer-icon-color: $footer-icon-color;
+  footer-background-color: $footer-background-color;
+  footer-links-color: $footer-links-color;
+  expert-author-icon-color: $expert-author-icon-color;
+}

@@ -1,0 +1,96 @@
+.author_expert_container {
+  display: flex;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid $color-black;
+  align-items: center;
+  justify-content: center;
+  @include mobile-portrait() {
+    flex-direction: column;
+    padding-bottom: 0px;
+  }
+  .author_expert_left {
+    display: flex;
+    flex: 50%;
+    @include mobile-portrait() {
+      display: block;
+    }
+
+    .author_expert_image {
+      position: relative;
+      // flex: 40%;
+      width: 182px;
+      height: 182px;
+      overflow: hidden;
+      border-radius: 50%;
+      @include mobile-portrait() {
+        width: 106px;
+        height: 106px;
+      }
+      img {
+        width: 182px;
+        height: 182px;
+        object-fit: cover;
+        @include mobile-portrait() {
+          width: 106px;
+          height: 106px;
+          margin-bottom: 21px;
+        }
+      }
+    }
+
+    .author_expert_detail {
+      margin-left: 27px;
+      flex: 60%;
+      @include mobile-portrait() {
+        margin-left: 0px;
+      }
+      .author_expert_total_posts {
+        font-size: 12px;
+        line-height: 22px;
+        letter-spacing: 1px;
+        font-weight: 800;
+      }
+
+      .author_expert_social_links {
+        display: flex;
+        .author_expert_icon {
+          color: $expert-author-icon-color;
+          size: 18px;
+        }
+        @include mobile-portrait() {
+          margin-bottom: 24px;
+        }
+        div {
+          padding-left: 15px;
+        }
+      }
+      .author_expert_name {
+        font-size: 52px;
+        font-weight: 800;
+        line-height: 53px;
+        margin-bottom: 18px;
+        @include mobile-portrait() {
+          font-size: 40px;
+          line-height: 46px;
+        }
+      }
+    }
+  }
+
+  .author_expert_right {
+    display: flex;
+    flex: 50%;
+
+    h2 {
+      display: none;
+      @include mobile-portrait() {
+        display: block;
+      }
+    }
+    // flex-direction: column;
+    @include mobile-portrait() {
+      flex-direction: column;
+    }
+  }
+}

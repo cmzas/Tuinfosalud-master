@@ -1,0 +1,122 @@
+// Mobile Portrait
+@mixin mobile-portrait() {
+  @media only screen and (max-width: $breakpoint-sm) {
+    @content;
+  }
+}
+
+// Tablet Portrait and Mobile Landscape
+@mixin table-mobile-landscape() {
+  @media only screen and (max-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+// Tablet Portrait and Mobile Landscape
+@mixin max-width-1024() {
+  @media only screen and (max-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+// Mixins Fonts
+@mixin h1-title() {
+  font-size: 32px;
+  line-height: 38px;
+
+  @include table-mobile-landscape() {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  @include mobile-portrait() {
+    font-size: 24px;
+    line-height: 30px;
+  }
+}
+
+@mixin h2-title() {
+  font-size: 28px;
+  line-height: 36px;
+  margin-bottom: 8px;
+
+  @include table-mobile-landscape() {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  @include mobile-portrait() {
+    font-size: 21px;
+    line-height: 30px;
+  }
+}
+
+@mixin h3-title() {
+  font-size: 21px;
+  line-height: 28px;
+  margin-bottom: 8px;
+
+  @include table-mobile-landscape() {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  @include mobile-portrait() {
+    font-size: 15px;
+    line-height: 21px;
+  }
+}
+
+@mixin large-text() {
+  font-size: 18px;
+  line-height: 28px;
+
+  @include table-mobile-landscape() {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  @include mobile-portrait() {
+    font-size: 14px;
+    line-height: 21px;
+  }
+}
+
+@mixin regular-text() {
+  font-size: 15px;
+  line-height: 21px;
+
+  @include table-mobile-landscape() {
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  @include mobile-portrait() {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
+@mixin small-text() {
+  font-size: 12px;
+  line-height: 16px;
+
+  @include table-mobile-landscape() {
+  }
+
+  @include mobile-portrait() {
+    font-size: 11px;
+    line-height: 15px;
+  }
+}
+
+@mixin xsmall-text() {
+  font-size: 10px;
+  line-height: 14px;
+
+  @include table-mobile-landscape() {
+  }
+
+  @include mobile-portrait() {
+  }
+}

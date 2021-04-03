@@ -1,0 +1,364 @@
+backend:
+  name: git-gateway
+  # branch: dev
+  commit_messages:
+    create: "Create {{collection}} “{{slug}}”"
+    update: "Update {{collection}} “{{slug}}”"
+    delete: "Delete {{collection}} “{{slug}}”"
+    uploadMedia: "[skip ci] Upload “{{path}}”"
+    deleteMedia: "[skip ci] Delete “{{path}}”"
+
+#Editorial Workflow
+publish_mode: editorial_workflow
+show_preview_links: true
+
+# local_backend: true # run npx netlify-cms-proxy-server for local testing
+
+media_folder: "static/assets"
+public_folder: "/assets"
+
+collections:
+  - name: "posts" # Used in routes ie.: /admin/collections/:slug/edit
+    label: "Posts" # Used in the UI
+    label_singular: "Post" # Used in the UI, ie: "New Post"
+    description: >
+      Create awesome content here.
+    folder: "src/content/posts"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} — {{year}}/{{month}}/{{day}}"
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields each document in this collection have
+      - { label: "Template", name: "template", widget: "hidden", default: "blog-post" }
+      - { label: "Title", name: "title", widget: "string", tagname: "h1" }
+      - {
+          label: "Slug",
+          name: "slug",
+          widget: "string",
+          required: true,
+          pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "A slug can have no spaces or special characters"],
+          hint: "Use only alphanumeric characters, - and _. Avoid spaces in any cases.",
+        }
+      - { label: "Slug Prefix", name: "slugPrefix", widget: "hidden", default: "articulos/" }
+      - {
+          label: "Publish Date",
+          name: "date",
+          widget: "datetime",
+          dateFormat: "YYYY-MM-DD",
+          timeFormat: "HH:mm",
+          format: "YYYY-MM-DD HH:mm",
+        }
+      - {
+          label: "Modified Date",
+          name: "modifiedDate",
+          widget: "datetime",
+          dateFormat: "YYYY-MM-DD",
+          timeFormat: "HH:mm",
+          format: "YYYY-MM-DD HH:mm",
+          required: false
+        }
+      - { label: "Description", name: "description", widget: "text", required: false }
+      - { label: "Featured Image", name: "featuredImage", widget: "image", required: false, tagname: "" }
+      - {
+          label: "Author",
+          name: "author",
+          widget: "relation",
+          collection: "authors",
+          searchFields: ["authorName"],
+          valueField: "authorName",
+          required: true,
+          tagname: "",
+        }
+      - { label: "Reviewed", name: "reviewed", widget: "boolean", required: false }
+      - {
+          label: "Reviewed by",
+          name: "reviewedBy",
+          widget: "relation",
+          collection: "experts",
+          searchFields: ["expertName"],
+          valueField: "expertName",
+          required: false,
+          tagname: "",
+        }
+      - {
+          label: "Category",
+          name: "category",
+          widget: "relation",
+          collection: "categories",
+          searchFields: ["categoryName"],
+          valueField: "categoryName",
+          required: true,
+          tagname: "",
+        }
+      - {
+          label: "Tag",
+          name: "tag",
+          widget: "relation",
+          collection: "tags",
+          searchFields: ["name"],
+          valueField: "name",
+          multiple: true,
+          required: true,
+          tagname: "",
+        }
+      #- { label: 'Reviewed By', name: 'reviewedBy', widget: 'string', required: true, tagname: '' }
+      - { label: "Tabla de contenido", name: "toc", widget: "boolean", required: false }
+      - { label: "Body", name: "body", widget: "markdown", hint: "Main content goes here." }
+  - name: "recipes" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "Recipes" # Used in the UI
+    label_singular: "Recipe" # Used in the UI, ie: "New Post"
+    description: >
+      Create awesome content here.
+    folder: "src/content/recipes"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} — {{year}}/{{month}}/{{day}}"
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields each document in this collection have
+      - { label: "Template", name: "template", widget: "hidden", default: "recipe-post" }
+      - { label: "Title", name: "title", widget: "string", tagname: "h1" }
+      - { label: "Slug Prefix", name: "slugPrefix", widget: "hidden", default: "receta/" }
+      - {
+          label: "Slug",
+          name: "slug",
+          widget: "string",
+          required: true,
+          pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "A slug can have no spaces or special characters"],
+          hint: "Use only alphanumeric characters, - and _. Avoid spaces in any cases.",
+        }
+      - {
+          label: "Publish Date",
+          name: "date",
+          widget: "datetime",
+          dateFormat: "YYYY-MM-DD",
+          timeFormat: "HH:mm",
+          format: "YYYY-MM-DD HH:mm",
+        }
+      - { label: "Description", name: "description", widget: "text", required: false }
+      - { label: "Featured Image", name: "featuredImage", widget: "image", required: false, tagname: "" }
+      - {
+          label: "Author",
+          name: "author",
+          widget: "relation",
+          collection: "authors",
+          searchFields: ["authorName"],
+          valueField: "authorName",
+          required: true,
+          tagname: "",
+        }
+      - {
+          label: "Category",
+          name: "category",
+          widget: "relation",
+          collection: "categories",
+          searchFields: ["categoryName"],
+          valueField: "categoryName",
+          required: true,
+          tagname: "",
+        }
+      - { label: "Subcategory", name: "subCategory", widget: "string", required: true }
+      - {
+          label: "Tag",
+          name: "tag",
+          widget: "relation",
+          collection: "tags",
+          searchFields: ["name"],
+          valueField: "name",
+          multiple: true,
+          required: true,
+          tagname: "",
+        }
+      #- { label: 'Category', name: 'category', widget: 'text', required: true, tagname: '' }
+      #- { label: 'Reviewed', name: 'reviewed', widget: 'checkbox', required: true, tagname: '' }
+      #- { label: 'Reviewed By', name: 'reviewedBy', widget: 'string', required: true, tagname: '' }
+      - { label: "Recipe Title", name: "recipeTitle", widget: "string", hint: "Title for Recipe" }
+      - { label: "Body", name: "body", widget: "markdown", hint: "Main content goes here." }
+      - label: "Ingredients"
+        name: "ingredients"
+        widget: "markdown"
+        hint: "Make sure to format it in list (li)"
+      - label: "PrepSteps"
+        name: "prepSteps"
+        widget: "markdown"
+        hint: "Make sure to format it in list (ol)"
+      - label: "Nutrition"
+        name: "nutrition"
+        widget: "object"
+        fields:
+          - { label: "Calories", name: "calories", widget: "number", required: true }
+          - { label: "Servings", name: "servings", widget: "number", required: true }
+          - { label: "Prep Time", name: "prepTime", widget: "number", hint: "Minutes" }
+          - { label: "Cook Time", name: "cookTime", widget: "number", hint: "Minutes" }
+          - { label: "Total Time", name: "totalTime", widget: "number", hint: "Minutes" }
+  - label: "Pages"
+    name: "pages"
+    label_singular: "Page"
+    description: >
+      Create awesome pages here
+    folder: "src/content/pages"
+    slug: "{{title}}"
+    summary: "{{title}}"
+    create: true
+    fields:
+      - { label: "Template", name: "template", widget: "hidden", default: "page-template" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Tagline", name: "tagline", widget: "string", required: false }
+      - { label: "Featured Image", name: "featuredImage", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+  - name: settings
+    label: Settings
+    files:
+      - name: general
+        label: General
+        file: "src/util/site.json"
+        fields:
+          - label: meta
+            name: meta
+            widget: object
+            fields:
+              - widget: string
+                name: title
+                label: Main Title
+                required: true
+              - widget: string
+                name: titleTemplate
+                label: Title Template
+                default: "%s"
+                required: true
+              - widget: string
+                name: siteUrl
+                label: Website URL
+                required: true
+              - widget: text
+                name: description
+                label: Description
+                default: ""
+                required: false
+              - widget: string
+                name: image
+                label: image
+              - widget: string
+                name: twitterUsername
+                label: Twitter
+                required: false
+              - widget: object
+                name: social
+                label: Social Links
+                fields:
+                 - {label: "Twitter Link", name: "twitterLink", widget: "string"}
+                 - {label: "Instagram Link", name: "instagramLink", widget: "string"}
+                 - {label: "Pinterest Link", name: "pinterestLink", widget: "string"}
+
+          - label: Sidebar Data
+            name: sideBarData
+            widget: list
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Path", name: "path", widget: "string"}
+          - label: Footer Links
+            name: footerLinks 
+            widget: list
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Link", name: "link", widget: "string"}
+          - label: Footer Text
+            name: footerText
+            widget: object
+            fields:
+              - {label: "Footer CopyRight", name: "footerCopyRight", widget: "string"}
+              - {label: "Footer First Line", name: "footerFirstLine", widget: "string"}
+              - {label: "Footer Second Line", name: "footerSecondLine", widget: "string"}
+          - label: "Accent Color"
+            name: accentColor 
+            widget: string    
+
+          - label: "Google Analytics"
+            name: ga
+            widget: string
+            hint: "Add you tracking ID, for example UA-XXXXXXXXX-X"
+  - name: "authors"
+    label: "Authors"
+    label_singular: "Author"
+    folder: "src/content/authors"
+    slug: "{{authorName}}"
+    identifier_field: "authors"
+    summary: "{{authorName}}"
+    create: true
+    fields:
+      - { label: "Template", name: "template", widget: "hidden", default: "author-page" }
+      - { label: "Slug Prefix", name: "slugPrefix", widget: "hidden", default: "autor/" }
+      - { label: "Name", name: "authorName", widget: "string", required: true }
+      - {
+          label: "Slug",
+          name: "authorSlug",
+          widget: "string",
+          required: true,
+          pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "A slug can have no spaces or special characters"],
+          hint: "Use only alphanumeric characters, - and _. Avoid spaces in any cases.",
+        }
+      - { label: "Featured Image", name: "featuredImage", widget: "image", required: false, tagname: "" }
+      - { label: "Body", name: "body", widget: "markdown", hint: "Author Bio goes here.", required: false }
+      - { label: "Twitter URL", name: "authorTwitterURL", wiget: "string", required: false }
+      - { label: "LinkedIn URL", name: "authorLinkedInURL", wiget: "string", required: false }
+      - { label: "Instagram URL", name: "authorInstagramURL", wiget: "string", required: false }
+      - { label: "Website URL", name: "authorWebsiteURL", wiget: "string", required: false }
+
+  - name: "experts"
+    label: "Experts"
+    label_singular: "Expert"
+    folder: "src/content/experts"
+    slug: "{{expertName}}"
+    identifier_field: "experts"
+    summary: "{{expertName}}"
+    create: true
+    fields:
+      - { label: "Template", name: "template", widget: "hidden", default: "expert-page" }
+      - { label: "Slug Prefix", name: "slugPrefix", widget: "hidden", default: "especialista/" }
+      - { label: "Name", name: "expertName", widget: "string", required: true }
+      - {
+          label: "Slug",
+          name: "expertSlug",
+          widget: "string",
+          required: true,
+          pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "A slug can have no spaces or special characters"],
+          hint: "Use only alphanumeric characters, - and _. Avoid spaces in any cases.",
+        }
+      - { label: "Featured Image", name: "featuredImage", widget: "image", required: false, tagname: "" }
+      - { label: "Body", name: "body", widget: "markdown", hint: "Expert Bio goes here.", required: false }
+      - { label: "Twitter URL", name: "expertTwitterURL", wiget: "string", required: false }
+      - { label: "LinkedIn URL", name: "expertLinkedInURL", wiget: "string", required: false }
+      - { label: "Instagram URL", name: "expertInstagramURL", wiget: "string", required: false }
+      - { label: "Website URL", name: "expertWebsiteURL", wiget: "string", required: false }
+
+  - name: "categories"
+    label: "Categories"
+    label_singular: "Category"
+    folder: "src/content/categories"
+    slug: "{{categoryName}}"
+    identifier_field: "categories"
+    summary: "{{categoryName}}"
+    create: true
+    fields:
+      - { label: "Template", name: "template", widget: "hidden", default: "category-page" }
+      - { label: "Slug Prefix", name: "slugPrefix", widget: "hidden", default: "categoria/" }
+      - { label: "Name", name: "categoryName", widget: "string", required: true }
+      - { label: "Description", name: "categoryDescription", widget: "string", required: false }
+      - {
+          label: "Slug",
+          name: "categorySlug",
+          widget: "string",
+          required: true,
+          pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "A slug can have no spaces or special characters"],
+          hint: "Use only alphanumeric characters, - and _. Avoid  spaces in any cases.",
+        }
+  - name: "tags"
+    label: "Tags"
+    label_singular: "Tag"
+    folder: "src/content/tags"
+    slug: "{{name}}"
+    identifier_field: "tags"
+    summary: "{{name}}"
+    create: true
+    fields:
+      - { label: "Template", name: "template", widget: "hidden", default: "tag-page" }
+      - { label: "Slug Prefix", name: "slugPrefix", widget: "hidden", default: "tags/" }
+      - { label: "Name", name: "name", widget: "string", required: true }

@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "title": "TuInfoSalud",
+    "titleTemplate": "%s",
+    "description": "Somos tuinfosalud.com un sitio con todo lo que necesitas saber para llevar una vida saludable.",
+    "siteUrl": "https://tuinfosalud.com",
+    "image": "/assets/tuinfosalud.png",
+    "twitterUsername": "@tuinfosalud",
+    "social": {
+      "twitterLink": "https://twitter.com/TuInfoSalud",
+      "instagramLink": "https://www.instagram.com/tuinfosalud/",
+      "pinterestLink": "https://www.pinterest.es/tu_infosalud/"
+    }
+  },
+  "accentColor": "#0a9279",
+  "ga": "UA-154704467-3",
+  "sideBarData": [
+    {
+      "title": "Dieta y Nutrición",
+      "path": "/categoria/dieta-y-nutricion"
+    },
+    {
+      "title": "Educación Sexual",
+      "path": "/categoria/educacion-sexual"
+    },
+    {
+      "title": "Estética",
+      "path": "Estética"
+    },
+    {
+      "title": "Medicinas",
+      "path": "/categoria/medicinas"
+    },
+    {
+      "title": "Psicología y salud emocional",
+      "path": "/categoria/psicologia-y-salud-emocional"
+    },
+    {
+      "title": "Remedios Caseros",
+      "path": "/categoria/remedios-caseros"
+    }
+  ],
+  "footerLinks": [
+    {
+      "title": "Quiénes somos",
+      "link": "/quienes-somos"
+    },
+    {
+      "title": "Tópicos",
+      "link": "/topicos-de-salud"
+    },
+    {
+      "link": "/politica-de-privacidad",
+      "title": "Política de privacidad"
+    },
+    {
+      "title": "Contáctanos",
+      "link": "/contactanos"
+    },
+    {
+      "title": "Proceso editorial",
+      "link": "/proceso-editorial"
+    },
+    {
+      "title": "Trabaja con nosotros",
+      "link": "/trabaja-con-nosotros"
+    },
+    {
+      "title": "Anuncia con nosotros",
+      "link": "/anuncia-con-nosotros"
+    },
+    {
+      "title": "Términos de uso",
+      "link": "/terminos-de-uso"
+    }
+  ],
+  "footerText": {
+    "footerCopyRight": "© 2020 InfoSalud, Inc. Todos los derechos reservados",
+    "footerFirstLine": "InfoSalud Media no proporciona asesoramiento médico,",
+    "footerSecondLine": "diagnósticos o tratamientos."
+  }
+}

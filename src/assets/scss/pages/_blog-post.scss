@@ -1,0 +1,175 @@
+.blog-post {
+  display: grid;
+  grid-template: 1fr / 1fr 300px;
+  // Se descomenta cuando se coloque la publcidad
+  // grid-template: 200px 1fr / 1fr 300px;
+  grid-column-gap: 2rem;
+
+  @include table-mobile-landscape() {
+    display: block;
+  }
+
+  .featured-image {
+    min-height: 50vh;
+    // border-radius: 4px;
+  }
+}
+
+.blog-post-sidebar {
+  grid-row: span 2;
+}
+
+.blog-post-content {
+  margin: 0 auto;
+  padding-top: 3rem;
+
+  @include table-mobile-landscape() {
+    padding-top: 2rem;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  h2 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  h3 {
+    font-size: 21px;
+    line-height: 28px;
+  }
+
+  p {
+    @include large-text();
+    margin-bottom: 32px;
+    font-weight: 400;
+  }
+
+  @include mobile-portrait {
+    h2 {
+      font-size: 20px;
+      line-height: 26px;
+    }
+
+    h3 {
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
+
+  a[target="_blank"]:after {
+    font-family: "FontAwesome";
+    content: " \f08e";
+    font-style: normal;
+    // font-weight: 900; /* 900 (Solid), 400 (Regular or Brands), 300 (Light) */
+    // content: " \f35d"; /* fa-external-link-alt */
+  }
+}
+
+.article {
+  grid-row: 2;
+  margin-top: 80px;
+  .blog-post-header {
+    margin: 24px 0;
+    h1 {
+      max-width: 600px;
+      font-size: 40px;
+      line-height: 46px;
+      font-weight: 900;
+      margin: 8px 0;
+    }
+    @include table-mobile-landscape() {
+      margin: 32px 0;
+    }
+
+    @include mobile-portrait() {
+      h1 {
+        font-size: 24px;
+        line-height: 30px;
+        font-weight: 800;
+      }
+    }
+
+    // h1 {
+    //   font-size: 40px;
+    //   line-height: 46px;
+    //   font-weight: 900;
+    // }
+
+    .blog-post-header-section1 {
+      display: flex;
+      // justify-content: center; /* center items horizontally, in this case */
+      align-items: center; /* center items vertically, in this case */
+      height: 30px;
+
+      .reviewed {
+        text-decoration: none;
+        margin-left: 10px;
+        @include mobile-portrait() {
+          margin-left: 5px;
+        }
+      }
+    }
+
+    p.post-reviewed {
+      font-weight: 500;
+    }
+
+    p.personal-info {
+      font-weight: 400;
+    }
+
+    span,
+    a {
+      color: $accent-color;
+      text-decoration: underline;
+    }
+  }
+}
+
+.recipe__stats {
+  &__body {
+    display: flex;
+
+    span {
+      padding-left: 5px;
+    }
+
+    .right-image {
+      padding-left: 20px;
+    }
+  }
+}
+
+.recipe__ingredients {
+  h3 {
+    padding-bottom: 12px;
+  }
+  ul {
+    // li {
+    //   line-height: 20px;
+    // }
+    margin-left: 1.8rem;
+  }
+}
+
+.recipe__preperation {
+  h3 {
+    padding-bottom: 12px;
+  }
+}
+
+@include mobile-portrait() {
+  .blog-post-ad,
+  .blog-post-sidebar {
+    display: none;
+  }
+
+  .blog-post-content {
+    padding-top: 1.5rem;
+  }
+}

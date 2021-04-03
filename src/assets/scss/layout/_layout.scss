@@ -1,0 +1,54 @@
+// Container
+.primary-container {
+  background-color: $color-background;
+}
+
+.primary-container main {
+  min-height: calc(100vh - 60px - 81px);
+  padding-bottom: 4rem;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 0 20px;
+}
+
+// Page
+.page,
+.blog-page,
+.contact-page,
+.thanks-page,
+.not-found-page {
+  padding: 1rem;
+
+  .wrapper {
+    max-width: 768px;
+    margin: 0 auto;
+  }
+}
+
+@include table-mobile-landscape() {
+  // Page
+  .page,
+  .blog-page,
+  .contact-page,
+  .thanks-page,
+  .not-found-page {
+    padding: 0 20px;
+  }
+
+  .primary-container main {
+    padding-bottom: 3rem;
+  }
+}
+
+@include mobile-portrait {
+  .primary-container main {
+    min-height: calc(100vh - 60px - 81px);
+    padding-bottom: 2rem;
+    padding: 0;
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+}
