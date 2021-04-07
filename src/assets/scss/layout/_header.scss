@@ -57,19 +57,38 @@
     font-weight: 400;
   }
 
-  @include mobile-portrait {
-    .sticky-title {
-      display: none;
+  // @include mobile-portrait {
+  //   .sticky-title {
+  //     display: none;
+  //     margin-right: 0;
+  //   }
+  @include table-mobile-landscape{
+    .sticky-title{
+      // display: none;
+      visibility: hidden;
       margin-right: 0;
     }
+    @include mobile-portrait{
+      .sticky-title{
+        display: none;
+      }
+    }
+
+  
     .sticky-icons a {
       margin-left: 10px;
       margin-bottom: 0;
-      font-size: 1rem !important;
+      font-size: 1.5rem !important;
       margin-bottom: auto;
       margin-left: auto;
       margin-right: auto;
       margin-top: auto;
+    }
+  }
+  @include mobile-portrait(){
+    .sticky-icons a{
+      font-size: 1rem !important;
+      margin-top: 2px !important;
     }
   }
 

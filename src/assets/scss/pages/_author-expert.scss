@@ -5,7 +5,11 @@
   border-bottom: 1px solid $color-black;
   align-items: center;
   justify-content: center;
-  @include mobile-portrait() {
+  // @include mobile-portrait() {
+  //   flex-direction: column;
+  //   padding-bottom: 0px;
+  // }
+  @include table-mobile-landscape{
     flex-direction: column;
     padding-bottom: 0px;
   }

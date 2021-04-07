@@ -14,9 +14,19 @@
     // border-radius: 4px;
   }
 }
+@include tablet-portrait() {
+  .blog-post{
+    grid-template:1fr / 1fr 0px;
+    grid-column-gap: 0rem;
+  }
+  .blog-post-sidebar{
+    display: none;
+  }
+}
 
 .blog-post-sidebar {
   grid-row: span 2;
+  
 }
 
 .blog-post-content {

@@ -23,14 +23,32 @@
     grid-row-gap: 16px;
     padding-top: 32px;
 
-    @include mobile-portrait {
-      grid-auto-flow: column;
-      overflow-x: auto;
-      padding-top: 24px;
-      padding-bottom: 20px;
-      margin-left: -20px;
-      margin-right: -20px;
+    // @include mobile-portrait {
+    //   grid-auto-flow: column;
+    //   overflow-x: auto;
+    //   padding-top: 24px;
+    //   padding-bottom: 20px;s
+    //   margin-left: -20px;
+    //   margin-right: -20px;
+    // }
+    @include tablet-portrait{
+      display: grid;
+    grid-template-columns:1fr 1fr;
+    // grid-template-columns: repeat(1,1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 16px;
+    padding: 32px 50px 0px 50px;
     }
+    @include table-mobile-landscape{
+      display: grid;
+    grid-template-columns: repeat(1,1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 16px;
+    padding: 32px 50px 0px 50px;
+    }
+    @include mobile-portrait{
+      padding: 32px 0px 0px 0px;
+  }
   }
 
   .carousel-card {
@@ -46,12 +64,16 @@
     p {
       font-weight: 400;
       color: $color-gray;
+      @include table-mobile-landscape{
+      margin-bottom: 1s0px;
+      }
     }
+    
 
     @include mobile-portrait {
       .featured-image {
-        width: 156px;
-        height: 102px;
+        // width: 156px;
+        // height: 102px;
       }
     }
   }

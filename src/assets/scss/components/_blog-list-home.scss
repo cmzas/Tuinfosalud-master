@@ -25,11 +25,17 @@
     grid-row-gap: 12px;
     padding-top: 32px;
 
-    @include table-mobile-landscape() {
+    // @include table-mobile-landscape() {
+    //   display: flex;
+    //   flex-wrap: wrap;
+    //   grid-row-gap: 12px;
+    //   padding-top: 24px;
+    // }
+    @include tablet-portrait() {
       display: flex;
       flex-wrap: wrap;
       grid-row-gap: 12px;
-      padding-top: 24px;
+      padding-top: 24px ;
     }
   }
 
@@ -37,12 +43,19 @@
     grid-row: 1 / span 4;
     grid-column: 2;
     background: $color-light-gray;
+    @include tablet-portrait{
+      width: 100%;
+    }
 
     img {
       margin: 0;
       z-index: 1;
-      @include table-mobile-landscape() {
+      // @include table-mobile-landscape() {
+      //   width: 100%;
+      // }
+      @include tablet-portrait() {
         width: 100%;
+     
       }
     }
   }

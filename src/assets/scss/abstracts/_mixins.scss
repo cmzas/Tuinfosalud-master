@@ -13,7 +13,12 @@
 }
 
 // Tablet Portrait and Mobile Landscape
-@mixin max-width-1024() {
+// @mixin max-width-1024() {
+//   @media only screen and (max-width: $breakpoint-lg) {
+//     @content;
+//   }
+// }
+@mixin tablet-portrait() {
   @media only screen and (max-width: $breakpoint-lg) {
     @content;
   }
